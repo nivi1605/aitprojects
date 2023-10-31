@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New user login</title>
+    <style>
+        input {
+            margin: 2px;
+            border: 2px solid gray;
+            outline: none;
+
+        }
+
+        .FNAME,
+        .Uname,
+        .Email,
+        .psw,
+        .tele,
+        .pan {
+            display: none;
+            color: red;
+        }
+        .formin{
+            border: 1px;
+            text-align: center;
+            margin: 1% 40%;
+            /* background-color:gray; */
+            padding: 30px 10px;
+            box-shadow: 4px 4px 4px 4px gray;
+        }
+        h2{
+            text-align: center;
+            margin-top: 10%;
+            font-size: 5vh;
+        }
+
+    </style>
+</head>
+
+<body>
+    <h2>New User Signup</h2>
+    <div class="formin">
+    <input type="text" name="fname" id="fname" placeholder="Enter Your Firstname"><br>
+    <span id="fstname" class="FNAME"> First Name should contain 5-15 characters</span><br>
+
+    <input type="text" name="user" id="username" placeholder="Enter Your Username"><br>
+    <span id="USERname" class="Uname"> User Name must be contain 5-12 characters</span><br>
+
+    <input type="text" name="email" id="email" placeholder="Enter Your Email"><br>
+    <span id="mail" class="Email">email must be valid address,e.g, contain 5-15 characters</span><br>
+
+    <input type="text" name="Password" id="Password" placeholder="Enter Your Password"> <br>
+    <span id="passw" class="psw"> password s contain 5-15 characters</span><br>
+
+    <input type="text" name="telephone" id="telephone" placeholder="Enter Your telephone"><br>
+    <span id="number" class="tele"> tele phone should contain 10 numbers</span><br>
+
+    <input type="text" name="pan" id="panno" placeholder="Enter Pan Number"><br>
+    <span id="pcard" class="pan"> Must be a valid panCard Number</span><br>
+</div>
+
+    <script>
+        let userFname = document.getElementById('fname');
+        userFname.addEventListener('keyup', function () {
+            let userFname = document.getElementById('fname').value;
+            let regexfname = /^[A-Z][a-z]{5,15}/;
+            if (regexfname.test(userFname)) {
+                document.getElementById('fname').style.border = "2px solid green";
+                document.getElementById('fstname').style.display = 'none';
+
+            } else {
+                document.getElementById('fname').style.border = "2px solid red";
+                 document.getElementById('fstname').style.display = 'block';
+            }
+        })
+
+        let userDetail = document.getElementById('username');
+        userDetail.addEventListener('keyup', function () {
+            let userDetail = document.getElementById('username').value;
+            let regexusername = /[a-z][A-z][0-9]{5,12}/;
+            if (regexusername.test(userDetail)) {
+                document.getElementById('username').style.border = '2px solid green';
+                document.getElementById('USERname').style.display = 'none'
+
+            } else {
+                document.getElementById('username').style.border = "2px solid red";
+                 document.getElementById('USERname').style.display = 'block';
+            }
+        })
+
+        let userEmail = document.getElementById('email');
+        userEmail.addEventListener('keyup', function () {
+            let userEmail = document.getElementById('email').value;
+            let regexmail = /([a-z0-9A-Z.])+@[a-z0-9.]+$/;
+            if (regexmail.test(userEmail)) {
+                document.getElementById('email').style.border = '2px solid green';
+                document.getElementById('mail').style.display = 'none';
+            }
+            else {
+                document.getElementById('email').style.border = "2px solid red";
+                  document.getElementById('mail').style.display = 'block';
+
+            }
+        })
+
+
+        let userPassword = document.getElementById('Password');
+        userPassword.addEventListener('keyup', function () {
+            let userPassword = document.getElementById('Password').value;
+            let regexpsw = /(?=.*([A-Za-z0-9])(?=.*[!@#$%^&*])){8,20}/;
+            if (regexpsw.test(userPassword)) {
+                document.getElementById('Password').style.border = '2px solid green';
+                document.getElementById('passw').style.display = 'none';
+            }
+            else {
+                document.getElementById('Password').style.border = "2px solid red";
+                 document.getElementById('passw').style.display = 'block';
+            }
+        })
+
+        let userPhone = document.getElementById('telephone');
+        userPhone.addEventListener('keyup', function () {
+            let userPhone = document.getElementById('telephone').value;
+            let regextele = /^[6-9]\d{9}$/;
+            if (regextele.test(userPhone)) {
+                document.getElementById('telephone').style.border = '2px solid green';
+                document.getElementById('number').style.display = 'none'
+            }
+            else {
+                document.getElementById('telephone').style.border = "2px solid red";
+                   document.getElementById('number').style.display = 'block';
+            }
+        })
+
+        let userPan = document.getElementById('panno');
+        userPan.addEventListener('keydown', function () {
+            let userPan = document.getElementById('panno').value;
+            let regexpan = /^[A-Z]{5}[0-9]{4}[A-Z]$/;
+            if (regexpan.test(userPan)) {
+                document.getElementById('panno').style.border = '2px solid green';
+                document.getElementById('pcard').style.display = 'none';
+            }
+            else {
+                document.getElementById('panno').style.border = "2px solid red";
+                 document.getElementById('pcard').style.display = 'block';
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

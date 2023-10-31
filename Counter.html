@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Project</title>
+    <style>
+        .count{
+            width: 400px;
+            margin: 100px 500px;
+            text-align: center;
+            box-shadow: 4px 4px 4px 4px gray;
+            padding-bottom: 10px;
+            padding: 10px 30px;
+        }
+            #sub{
+            background-color: red;
+            color: white;
+            font-size: x-large;
+        }
+        .rest{
+            background-color: gray;
+            color: white;
+            font-size: x-large;
+        }
+        .add{
+            background-color: green;
+            color: white;
+            font-size: x-large;
+        }
+        button{
+            border: none;
+        }
+        h2{
+            font-size: 40px;
+        }
+        p{
+            font-size: 60px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="count">
+    <h2>Counter</h2>
+    <p id="value">0</p>
+    <button onclick="substract()" id="sub">-</button>
+    <button onclick="res()" class="rest">Reset</button>
+    <button onclick="addition()" class="add">+</button>
+    </div>
+    <script>
+        let a = 0;
+        function substract() {
+                a =a-1 ;
+                document.getElementById('value').innerHTML = `  ${a}`;
+                document.getElementById('value').style.color = 'black';
+                if(a<0){
+                    document.getElementById('value').style.color='red';
+                } else if(a>0){
+                    document.getElementById('value').style.color='green';
+                }
+        }
+            function addition(){
+                a =a+1 ;
+                document.getElementById('value').innerHTML = `  ${a}`;
+                document.getElementById('value').style.color = 'black';
+                if(a>0){
+                    document.getElementById('value').style.color='green';
+                }
+            }
+
+            function res(){
+                a=0;
+                document.getElementById('value').innerHTML = `  ${a}`;
+                document.getElementById('value').style.color = 'black';
+                if(a=0){
+                    document.getElementById('value').style.color='black';
+                }
+            }
+    </script>
+
+</body>
+
+</html>
