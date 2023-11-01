@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <style>
+        button{
+            margin-top: 15px;
+            background-color: blue;
+            color: black;
+            border: none;
+        }
+        .calcy{
+            width: 400px;
+            margin: 100px 500px;
+            text-align: center;
+            box-shadow: 4px 4px 4px 4px gray;
+            padding-bottom: 10px;
+            padding: 10px 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="calcy">
+    <h2>Age Calculator</h2>
+    <p>Enter your date of birth</p>
+    <input type="date" id="age"><br>
+    <button onclick="calcu()">Calculate Age</button><br>
+    <p id="agee">Your age is</p>
+    </div>
+    <script>
+        var ageyear,agemonth;
+        function calcu(){
+            var input=document.getElementById('age').value;
+            console.log(input);
+            var annual=input.substring(0,4);
+            var month=input.substring(5,2);
+            var currentdate=new Date();
+            var currentyear=currentdate.getFullYear();
+            var currentmonth=currentdate.getMonth();
+
+            if(currentyear==annual && currentmonth<=month){
+                ageyear=currentyear-annual;
+                agemonth=currentmonth-month;
+                document.getElementById('agee').innerHTML=`your age is ${ageyear} years and ${agemonth} months old`;
+
+            } else if(annual>currentyear ){
+                document.getElementById('agee').innerHTML=`Enter valid date of birth`;
+            } else{
+                ageyear=currentyear-annual;
+                agemonth=currentmonth-month;
+                document.getElementById('agee').innerHTML=`your age is ${ageyear} years old`;
+            }
+
+        }
+
+    </script>
+    
+</body>
+</html>
